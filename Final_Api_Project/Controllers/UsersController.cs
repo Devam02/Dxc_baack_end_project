@@ -9,7 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
- 
+
 namespace Final_Api_Project.Controllers
 
 {
@@ -24,16 +24,16 @@ namespace Final_Api_Project.Controllers
                 {
                     if (c.USERSTABLEs.FirstOrDefault(p => p.Password == pass) != null)
                     {
-                        var items = c.USERSTABLEs .Where(x => x.User_name == uname && x.Password == pass)
+                        var items = c.USERSTABLEs.Where(x => x.User_name == uname && x.Password == pass)
                         .Select(x => new
                         {
                             username = x.User_name,
                             email = x.Email
                         });
 
-                         var  JSON = JsonConvert.SerializeObject(items);
+                        var JSON = JsonConvert.SerializeObject(items);
                         return JSON;
-                        
+
                     }
                     return false;
                 }
@@ -63,13 +63,61 @@ namespace Final_Api_Project.Controllers
 
 
 
+
+        }
+        public object placeorder(Placeordermodel p)
+        {
+            using (FinalProjectEntities6 c = new FinalProjectEntities6())
+            {
+                Orders_table reg = new Orders_table
+                {
+
+                    rupya = p.rupya,
+                    pin = p.pin,
+                    ph = p.ph,
+                    paisa = p.paisa,
+                    firstname = p.firstname,
+                    lastname = p.lastname,
+                    email = p.email,
+                    counrycode = p.counrycode,
+                    country = p.country,
+                    buyerfname = p.buyerfname,
+                    buyerlname = p.buyerlname,
+                    address = p.address,
+                    state = p.state
+
+                };
+                c.Orders_table.Add(reg);
+                c.SaveChanges();
+
+            }
+            return true;
+        }
+
+        public object vieworder(string username)
+        {
+            using (FinalProjectEntities6 c = new FinalProjectEntities6())
+            {
+
+                var items = c.Orders_table.Where(x => x.buyerfname == username )
+                        .Select(x => new
+                        {
+                            rupya=x.rupya,
+                            ph=x.ph,
+                            buyerfname=x.buyerfname,
+                            firstname=x.firstname,
+                            address=x.address
+                            
+
+                          
+                        });
+
+                var JSON = JsonConvert.SerializeObject(items);
+                return JSON;
+
+            }
+            
         }
     }
-
-
-    
-
-
-
 }
 

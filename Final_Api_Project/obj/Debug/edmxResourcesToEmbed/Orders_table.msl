@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinalProjectModel1StoreContainer" CdmEntityContainer="FinalProjectEntities6">
+    <EntitySetMapping Name="Orders_table">
+      <EntityTypeMapping TypeName="FinalProjectModel1.Orders_table">
+        <MappingFragment StoreEntitySet="Orders_table">
+          <ScalarProperty Name="rupya" ColumnName="rupya" />
+          <ScalarProperty Name="pin" ColumnName="pin" />
+          <ScalarProperty Name="ph" ColumnName="ph" />
+          <ScalarProperty Name="paisa" ColumnName="paisa" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="counrycode" ColumnName="counrycode" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="buyerlname" ColumnName="buyerlname" />
+          <ScalarProperty Name="buyerfname" ColumnName="buyerfname" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
